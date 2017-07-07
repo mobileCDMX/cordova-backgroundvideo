@@ -170,20 +170,6 @@ public class BackgroundVideo extends CordovaPlugin {
         return FILE_PATH + fileName + FILE_EXTENSION;
     }
 
-    //Plugin Method Overrides
-    @Override
-    public void onPause(boolean multitasking) {
-        if (videoOverlay != null) {
-            try {
-                this.Stop();
-            } catch (JSONException e) {
-                Log.e(TAG, e.getMessage(), e);
-                callbackContext.error(e.getMessage());
-            }
-        }
-        super.onPause(multitasking);
-    }
-
     @Override
     public void onDestroy() {
         try {
