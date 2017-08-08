@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-backgroundvideo" version="0.0.14" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-backgroundvideo" version="0.0.15" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
   <name>cordova-backgroundvideo</name>
-  <description>A simple Cordova/Phonegap plugin to capture video and preview onscreen via a transparent overlay without affecting app functionality.</description>
-  <author>James McCallum and Josh Hayward, support@iclue.io</author>
+    <description>
+        A simple Cordova/Phonegap plugin to capture video and preview onscreen via a transparent overlay without
+        affecting app functionality. On Android can record videos with minimized app or even when screen is off.
+    </description>
+  <author>James McCallum and Josh Hayward, support@iclue.io, pavelety@likeapp.ru (background mode for android)</author>
   <repo>https://github.com/pavelety/backgroundvideo</repo>
 
   <engines>
@@ -61,9 +64,9 @@
       <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     </config-file>
 
-    <source-file src="src/android/BackgroundVideo.java" target-dir="src/io/iclue/backgroundvideo" />
-    <source-file src="src/android/CameraHelper.java" target-dir="src/io/iclue/backgroundvideo" />
-    <source-file src="src/android/VideoOverlay.java" target-dir="src/io/iclue/backgroundvideo" />
+    <source-file src="src/android/io/iclue/backgroundvideo/BackgroundVideo.java" target-dir="src/io/iclue/backgroundvideo" />
+    <source-file src="src/android/io/iclue/backgroundvideo/CameraHelper.java" target-dir="src/io/iclue/backgroundvideo" />
+    <source-file src="src/android/io/iclue/backgroundvideo/VideoOverlay.java" target-dir="src/io/iclue/backgroundvideo" />
   </platform>
 
 

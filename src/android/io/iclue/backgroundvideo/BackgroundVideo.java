@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
-
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -103,7 +102,7 @@ public class BackgroundVideo extends CordovaPlugin {
         if (videoOverlay == null) {
             videoOverlay = new VideoOverlay(cordova.getActivity()); //, getFilePath());
 
-            cordova.getActivity().runOnUiThread(new Runnable() {
+            cordova.getActivity().runOnUiThread(new Runnable() {//@Todo add on resume
                 @Override
                 public void run() {
                     cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -133,6 +132,7 @@ public class BackgroundVideo extends CordovaPlugin {
             @Override
             public void run() {
                 try {
+                    Log.d(TAG, "videoOverlay.Start");
                     videoOverlay.Start(getFilePath(filename));
                 } catch (Exception e) {
                     e.printStackTrace();
