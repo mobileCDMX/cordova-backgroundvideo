@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-backgroundvideo" version="0.0.15" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-backgroundvideo" version="0.0.16" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
   <name>cordova-backgroundvideo</name>
     <description>
         A simple Cordova/Phonegap plugin to capture video and preview onscreen via a transparent overlay without
-        affecting app functionality. On Android can record videos with minimized app or even when screen is off.
+        affecting app functionality.
+        On Android can record videos with minimized app or even when screen is off. It can be used for spy cameras or for video surveillance.
     </description>
   <author>James McCallum and Josh Hayward, support@iclue.io, pavelety@likeapp.ru (background mode for android)</author>
   <repo>https://github.com/pavelety/backgroundvideo</repo>
@@ -12,7 +13,7 @@
     <engine name="cordova" version=">=4.0.0" />
   </engines>
 
-  <keywords>video, background, transparent, overlay, recording, camera, cordova</keywords>
+  <keywords>video, background, transparent, overlay, recording, camera, cordova, spy, surveillance</keywords>
 
   <license>GPL3</license>
 

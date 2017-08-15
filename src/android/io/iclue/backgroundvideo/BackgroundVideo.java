@@ -1,6 +1,7 @@
 package io.iclue.backgroundvideo;
 
 import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -34,10 +35,19 @@ public class BackgroundVideo extends CordovaPlugin {
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-        FILE_PATH = cordova.getActivity().getFilesDir().toString() + "/";
-        //FILE_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).toString() + "/";
+        long usableSpaceExternal = 0;
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            File externalFilesDir = cordova.getActivity().getExternalFilesDir(null);
+            usableSpaceExternal = externalFilesDir.getUsableSpace();
+            Log.d(TAG, "usableSpaceExternal (" + externalFilesDir + "): " + usableSpaceExternal);
+            FILE_PATH = externalFilesDir.toString() + "/";
+        }
+        File filesDir = cordova.getActivity().getFilesDir();
+        Log.d(TAG, "usableSpaceFilesDir (" + filesDir + "): " + filesDir.getUsableSpace());
+        if (filesDir.getUsableSpace() > usableSpaceExternal) {
+            FILE_PATH = filesDir.toString() + "/";
+        }
     }
-
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
