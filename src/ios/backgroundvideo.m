@@ -73,14 +73,14 @@
         [session addOutput:output];
 
     if(shouldRecordAudio){
-        
+
         //Capture audio input
         AVCaptureDevice *audioCaptureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
         AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:audioCaptureDevice error:nil];
 
         if ([session canAddInput:audioInput])
             [session addInput:audioInput];
-    
+
     }
 
 
@@ -119,15 +119,13 @@
 
 -(NSString*)getFileName
 {
-    int fileNameIncrementer = 1;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *libPath = [self getLibraryPath];
 
-    NSString *tempPath = [[NSString alloc] initWithFormat:@"%@%@_%i%@", libPath, self.token, fileNameIncrementer, FileExtension];
+    NSString *tempPath = [[NSString alloc] initWithFormat:@"%@%@%@", libPath, self.token, FileExtension];
 
     while ([fileManager fileExistsAtPath:tempPath]) {
-        tempPath = [NSString stringWithFormat:@"%@%@_%i%@", libPath, self.token, fileNameIncrementer, FileExtension];
-        fileNameIncrementer++;
+        tempPath = [NSString stringWithFormat:@"%@%@%@", libPath, self.token, FileExtension];
     }
 
     return tempPath;
