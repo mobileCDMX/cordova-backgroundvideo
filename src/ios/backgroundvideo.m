@@ -63,10 +63,10 @@
     NSURL *fileURI = [[NSURL alloc] initFileURLWithPath:outputPath];
 
     //capture device output
-    CMTime maxDuration = CMTimeMakeWithSeconds(1800, 1);
+    //CMTime maxDuration = CMTimeMakeWithSeconds(1800, 1);
 
     output = [[AVCaptureMovieFileOutput alloc]init];
-    output.maxRecordedDuration = maxDuration;
+    //output.maxRecordedDuration = maxDuration;
 
 
     if ( [session canAddOutput:output])
