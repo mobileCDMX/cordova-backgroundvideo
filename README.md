@@ -1,8 +1,13 @@
 # Backgroundvideo
 
-##### A simple Cordova/Phonegap plugin to capture video and then display it onscreen via a transparent overlay without affecting app functionality.
-#### On Android can record videos with minimized app or even when screen is off. It can be used for spy cameras or for video surveillance. 
+##### A simple Cordova/Phonegap plugin to capture MP4 video and then display it onscreen via a transparent overlay without affecting app functionality.
+#### On Android can record videos with minimized app or even when screen is off. It can be used for spy cameras or for video surveillance.
+#### On iOS you need to provide screen insomnia. Video will be correctly finished on app minimized, screen off or incoming call.
 
+## Supported Platforms
+- Android
+- iOS
+- Windows
 
 # How to use
 ### Install
@@ -16,11 +21,12 @@ cordova.plugins.backgroundvideo.start(filename, cameradirection, shouldRecordAud
 
 # Getting started
 ###### start recording
-```
-cordova.plugins.backgroundvideo.start('myvideo', 'front', true, null, null);
+```js
+var fileName = new Date().getTime() + '';
+cordova.plugins.backgroundvideo.start(fileName, 'front', true, null, null);
 ```
 ###### stop recording
-```
+```js
 cordova.plugins.backgroundvideo.stop(successFn, errorFn);
 ```
 ### Other bits

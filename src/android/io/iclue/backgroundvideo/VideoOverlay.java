@@ -254,7 +254,7 @@ public class VideoOverlay extends ViewGroup implements TextureView.SurfaceTextur
 
         initializeCamera();
 
-        if (mCamera != null) {
+        if (mCamera != null && this.mRecordingState != RecordingState.STARTED) {
             try {
                 Log.d(TAG, "setPreviewTexture");
                 mCamera.setPreviewTexture(surface);
@@ -264,7 +264,9 @@ public class VideoOverlay extends ViewGroup implements TextureView.SurfaceTextur
             Log.d(TAG, "startPreview");
             mCamera.startPreview();
         } else {
-            Log.e(TAG, "mCamera == null");
+            if (mCamera == null) {
+                Log.e(TAG, "mCamera == null");
+            }
         }
 
         if (this.mRecordingState == RecordingState.INITIALIZING) {
