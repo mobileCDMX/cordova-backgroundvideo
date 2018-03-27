@@ -108,6 +108,8 @@ public class BackgroundVideo extends CordovaPlugin {
         final String filename = args.getString(0);
         final String cameraFace = args.getString(1);
         final boolean recordAudio = args.getBoolean(2);
+        final int videoBitrate = args.getInt(3);
+        final int audioBitrate = args.getInt(4);
 
         if (videoOverlay == null) {
             videoOverlay = new VideoOverlay(cordova.getActivity()); //, getFilePath());
@@ -137,6 +139,8 @@ public class BackgroundVideo extends CordovaPlugin {
 
         videoOverlay.setCameraFacing(cameraFace);
         videoOverlay.setRecordAudio(recordAudio);
+        videoOverlay.setVideoBitrate(videoBitrate);
+        videoOverlay.setAudioBitrate(audioBitrate);
 
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override

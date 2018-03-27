@@ -29,6 +29,8 @@ public class VideoOverlay extends ViewGroup implements TextureView.SurfaceTextur
     private boolean mRecordAudio = true;
     private int mCameraFacing = Camera.CameraInfo.CAMERA_FACING_BACK;
     private int mOrientation;
+    private int videoBitrate;
+    private int audioBitrate;
 
     public VideoOverlay(Context context) {
         super(context);
@@ -50,6 +52,14 @@ public class VideoOverlay extends ViewGroup implements TextureView.SurfaceTextur
 
     public void setRecordAudio(boolean recordAudio) {
         mRecordAudio = recordAudio;
+    }
+
+    public void setVideoBitrate(int videoBitrate) {
+        this.videoBitrate = videoBitrate;
+    }
+
+    public void setAudioBitrate(int audioBitrate) {
+        this.audioBitrate = audioBitrate;
     }
 
     public void Start(String filePath) throws Exception {
@@ -114,9 +124,9 @@ public class VideoOverlay extends ViewGroup implements TextureView.SurfaceTextur
             mRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
             mRecorder.setVideoFrameRate(profile.videoFrameRate);
             mRecorder.setVideoSize(profile.videoFrameWidth, profile.videoFrameHeight);
-            mRecorder.setVideoEncodingBitRate(profile.videoBitRate / 2);
+            mRecorder.setVideoEncodingBitRate(videoBitrate);
             if (mRecordAudio) {
-                mRecorder.setAudioEncodingBitRate(profile.audioBitRate);
+                mRecorder.setAudioEncodingBitRate(audioBitrate);
                 mRecorder.setAudioChannels(profile.audioChannels);
                 mRecorder.setAudioSamplingRate(profile.audioSampleRate);
             }
